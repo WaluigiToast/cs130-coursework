@@ -1,0 +1,95 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-intermediate-lambda-reader.ss" "lang")((modname 4_13_in_class_activities) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
+; Lists
+
+; list primitives
+;empty
+;--- a special value, mostly to represent the empty list
+;empty?
+;--- a predicate to recognize empty and nothing else
+;first
+;--- the selector to extract the first item
+;rest
+;--- the selector to extract all but the first item
+
+;an empty list is simply written as 
+;empty
+;'()
+;(list)
+; vs
+;(list empty)
+
+; higher order procedures
+; filter, ormap, andmap, map, foldl, foldr
+
+;;;;;;;;;;;;;;;;;;;
+;Lists
+
+;'() is a shorthand
+;notation for (list...)
+
+;so '(1 2 3) is the same as
+;(list 1 2 3)
+;;;;;;;;;;;;;;;;;;;
+
+
+;Let's say that we define the lists below:
+
+(define lst1
+  (list 1 2 3 4 5 6 7 8))
+
+(define lst2
+  (list 9 (list 10 11)))
+
+;QUESTION 1A
+;What does (* (first (rest lst1)) (first (first (rest lst2))))
+;return?
+
+;Answer: 
+
+;QUESTION 1B
+;What does (length lst2)
+;return?
+
+;Answer: 
+
+;QUESTION 1C
+;What does (rest lst2)
+;return?
+
+;Answer: 
+
+
+;QUESTION 2
+;Write a procedure called two-to-five, that takes one input,
+; a non-empty list containing numbers only and returns true
+; if there are at least three numbers in lst that are between
+; 2 (inclusive) and 5 (inclusive), false otherwise.
+; Use filter in your definition.
+
+;two-to-five: (listof Number) -> Boolean
+;Takes in a non-empty list containing numbers only and returns true
+; if there are at least three numbers in lst that are between
+; 2 (inclusive) and 5 (inclusive), false otherwise.
+;(define (two-to-five lst)
+;  ...)
+
+;(check-expect (two-to-five (list 1 2 3 4 5))
+;              true)
+;(check-expect (two-to-five (list 0 6 7 8))
+;              false)
+
+;QUESTION 3
+;Write a procedure called squared-threes that takes in
+; one input, a non-empty list of numbers. It extracts all
+; numbers from the list that are divisible by 3, and then
+; returns a list of these numbers squared. 
+
+;(define (squared-threes lst)
+;  ...)
+
+;(check-expect (squared-threes (list 1 2 10 8 9))
+;              (list 81))
+;(check-expect (squared-threes (list 6 3 5 10 12 19))
+;              (list 36 9 144))
